@@ -16,7 +16,7 @@ public class UpdateLivreAction extends Action {
             HttpServletRequest request, HttpServletResponse response) {
 
         LivreForm f = (LivreForm) form;
-
+        System.out.println("LivreForm code = " + f.getCode());
         Livre livre = new Livre(
                 f.getCode(),
                 f.getTitre(),

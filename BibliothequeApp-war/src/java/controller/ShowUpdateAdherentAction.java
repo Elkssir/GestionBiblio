@@ -16,6 +16,7 @@ public class ShowUpdateAdherentAction extends Action {
                                  HttpServletRequest request, HttpServletResponse response) {
 
         String numero = request.getParameter("numero");
+        System.out.println("editAdherent appelé pour numéro: " + numero);
         if (numero != null && !numero.trim().isEmpty()) {
             Adherent adherent = GererAdherents.chercherAdherent(numero);
             if (adherent != null) {

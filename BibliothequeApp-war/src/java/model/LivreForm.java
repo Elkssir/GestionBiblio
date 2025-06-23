@@ -31,9 +31,10 @@ public class LivreForm extends ActionForm {
     public void setNbExemplaires(String nbExemplaires) { this.nbExemplaires = nbExemplaires; }
 
     @Override
-    public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
-        ActionErrors errors = new ActionErrors();
+public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
+    ActionErrors errors = new ActionErrors();
 
+    if ("/addLivre".equals(mapping.getPath())) {
         if (code == null || code.trim().isEmpty()) {
             errors.add("code", new ActionMessage("error.livre.code.required"));
         }
@@ -58,7 +59,9 @@ public class LivreForm extends ActionForm {
         } catch (NumberFormatException e) {
             errors.add("nbExemplaires", new ActionMessage("error.livre.exemplaires.invalid"));
         }
-
-        return errors;
     }
+
+    return errors;
+}
+
 }

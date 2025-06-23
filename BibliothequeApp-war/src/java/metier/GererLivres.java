@@ -44,24 +44,21 @@ public class GererLivres {
         s.close();
         return livres;
     }
-    
+
     public static void updateLivre(Livre livre) {
-    Session s = getSession();
-    s.beginTransaction();
+        Session s = getSession();
+        s.beginTransaction();
+        Livre existing = (Livre) s.get(Livre.class, livre.getCode());
+        if (existing != null) {
+            existing.setTitre(livre.getTitre());
+            existing.setAuteur(livre.getAuteur());
+            existing.setCategorie(livre.getCategorie());
+            existing.setNbExemplaires(livre.getNbExemplaires());
+            s.update(existing);
+            s.getTransaction().commit();
+        }
 
-    Livre existing = (Livre) s.get(Livre.class, livre.getCode());
-    if (existing != null) {
-        existing.setTitre(livre.getTitre());
-        existing.setAuteur(livre.getAuteur());
-        existing.setCategorie(livre.getCategorie());
-        existing.setNbExemplaires(livre.getNbExemplaires());
-
-        s.update(existing);
-        s.getTransaction().commit();
+        s.close();
     }
-
-    s.close();
-}
-
 
 }

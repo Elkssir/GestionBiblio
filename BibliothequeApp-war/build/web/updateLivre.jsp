@@ -39,7 +39,7 @@
             <h:form action="updateLivre.do" method="post">
                 <div class="mb-3">
                     <label class="form-label">Code</label>
-                    <h:text disabled="true" name="livreForm" property="code" styleClass="form-control" readonly="true"/>
+                   <h:text name="livreForm" property="code" styleClass="form-control" readonly="true"/>
                 </div>
 
                 <div class="mb-3">

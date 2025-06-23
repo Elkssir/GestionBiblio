@@ -35,6 +35,7 @@
         </action>
 
 
+
         <action path="/listLivres"
                 type="controller.ListLivresAction">
             <forward name="listLivres" path="/listLivres.jsp"/>
@@ -51,10 +52,11 @@
         <action path="/updateLivre"
                 type="controller.UpdateLivreAction"
                 name="livreForm"
-                input="/updateLivre.jsp"
+                scope="request"
                 validate="false">
-            <forward name="updateLivre" path="/updateLivre.jsp"/>
+            <forward name="success" path="/listLivres.do" redirect="true"/>
         </action>
+
         
         <action path="/editLivre"
                 type="controller.ShowUpdateLivreAction"

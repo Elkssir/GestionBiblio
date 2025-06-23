@@ -16,7 +16,7 @@ public class ShowUpdateLivreAction extends Action {
                                  HttpServletRequest request, HttpServletResponse response) {
         LivreForm f = (LivreForm) form;
         String code = request.getParameter("code");
-
+      
         if (code != null && !code.trim().isEmpty()) {
             Livre livre = GererLivres.chercherLivre(code);
             if (livre != null) {
