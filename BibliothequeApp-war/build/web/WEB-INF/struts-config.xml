@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+    <!-- Form Beans -->
+    <form-beans>
+        <form-bean name="livreForm" type="model.LivreForm"/>
+        <form-bean name="adherentForm" type="model.AdherentForm"/>
+        <form-bean name="empruntForm" type="model.EmpruntForm"/>
+    </form-beans>
+    
+    <message-resources parameter="com/myapp/struts/ApplicationResource"/>
+
+    <!-- Global Forwards -->
+    <global-forwards>
+        <forward name="index" path="/index.jsp"/>
+        <forward name="layout" path="/layout.jsp"/>
+
+    </global-forwards>
+
+    <!-- Action Mappings -->
+    <action-mappings>
+
+        <!-- LIVRES -->
+        <action path="/addLivre"
+                type="controller.AddLivreAction"
+                name="livreForm"
+                scope="request"
+                input="/addLivre.jsp"
+                validate="true">
+            <forward name="success" path="/listLivres.do" redirect="true"/>
+        </action>
+
+
+        <action path="/listLivres"
+                type="controller.ListLivresAction">
+            <forward name="listLivres" path="/listLivres.jsp"/>
+        </action>
+
+        <action path="/deleteLivre"
+                type="controller.DeleteLivreAction"
+                name="livreForm"
+                input="/deleteLivre.jsp"
+                validate="false">
+            <forward name="deleteLivre" path="/deleteLivre.jsp"/>
+        </action>
+
+        <action path="/updateLivre"
+                type="controller.UpdateLivreAction"
+                name="livreForm"
+                input="/updateLivre.jsp"
+                validate="false">
+            <forward name="updateLivre" path="/updateLivre.jsp"/>
+        </action>
+        
+        <action path="/editLivre"
+                type="controller.ShowUpdateLivreAction"
+                name="livreForm"
+                scope="request"
+                validate="false">
+            <forward name="updateLivre" path="/updateLivre.jsp"/>
+        </action>
+
+        <!-- ADHERENTS -->
+        <action path="/addAdherent"
+                type="controller.AddAdherentAction"
+                name="adherentForm"
+                input="/addAdherent.jsp"
+                scope="request"
+                validate="true">
+            <forward name="success" path="/listAdherents.do" redirect="true"/>
+        </action>
+
+        <action path="/listAdherents"
+                type="controller.ListAdherentsAction"
+                scope="request">
+            <forward name="listAdherents" path="/listAdherents.jsp"/>
+        </action>
+
+        <action path="/deleteAdherent"
+                type="controller.DeleteAdherentAction"
+                scope="request">
+            <forward name="deleteAdherent" path="/listAdherents.do"/>
+        </action>
+
+        <action path="/editAdherent"
+                type="controller.ShowUpdateAdherentAction"
+                name="adherentForm"
+                scope="request"
+                validate="false">
+            <forward name="updateAdherent" path="/updateAdherent.jsp"/>
+        </action>
+
+        <action path="/updateAdherent"
+                type="controller.UpdateAdherentAction"
+                name="adherentForm"
+                scope="request"
+                validate="false">
+            <forward name="updateAdherent" path="/updateAdherent.jsp"/>
+        </action>
+
+        <!-- EMPRUNTS -->
+
+        <action path="/formEmprunt"
+                type="controller.FormEmpruntAction"
+                name="empruntForm"
+                scope="request"
+                validate="false">
+            <forward name="form" path="/addEmprunt.jsp"/>
+        </action>
+
+
+        <action path="/addEmprunt"
+                type="controller.AddEmpruntAction"
+                name="empruntForm"
+                scope="request"
+                input="/formEmprunt.do"
+                validate="true">
+            <forward name="success" path="/listEmprunts.do" redirect="true"/>
+        </action>
+
+
+
+        <!-- Liste des emprunts -->
+        <action path="/listEmprunts"
+                type="controller.ListEmpruntsAction"
+                scope="request">
+            <forward name="listEmprunts" path="/listEmprunts.jsp"/>
+        </action>
+
+        <action path="/rendreEmprunt"
+                type="controller.RendreEmpruntAction"
+                name="empruntForm"
+                scope="request"
+                input="/rendreEmprunt.jsp"
+                validate="true">
+            <forward name="success" path="/listEmprunts.do" redirect="true"/>
+        </action>
+
+
+
+        <!-- Supprimer un emprunt (facultatif) -->
+        <action path="/deleteEmprunt"
+                type="controller.DeleteEmpruntAction"
+                scope="request">
+            <forward name="deleteEmprunt" path="/listEmprunts.do"/>
+        </action>
+        
+        <action path="/formEmprunt"
+                type="controller.ShowAddEmpruntFormAction"
+                scope="request">
+            <forward name="addEmprunt" path="/addEmprunt.jsp"/>
+        </action>
+
+        
+        <action path="/detailEmprunt"
+                type="controller.DetailEmpruntAction"
+                scope="request">
+            <forward name="detailEmprunt" path="/detailEmprunt.jsp"/>
+        </action>
+
+
+
+
+    </action-mappings>
+
+</struts-config>
