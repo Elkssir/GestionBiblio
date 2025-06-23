@@ -40,7 +40,7 @@
             <h:form action="updateAdherent.do" method="post">
                 <div class="mb-3">
                     <label class="form-label">Numéro</label>
-                    <h:text property="numero" styleClass="form-control" readonly="true"/>
+                    <h:text disabled="true" property="numero" styleClass="form-control" readonly="true"/>
                 </div>
 
                 <div class="mb-3">

@@ -39,27 +39,27 @@
             <h:form action="updateLivre.do" method="post">
                 <div class="mb-3">
                     <label class="form-label">Code</label>
-                    <h:text property="code" styleClass="form-control" readonly="true"/>
+                    <h:text disabled="true" name="livreForm" property="code" styleClass="form-control" readonly="true"/>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Titre</label>
-                    <h:text property="titre" styleClass="form-control"/>
+                    <h:text name="livreForm" property="titre" styleClass="form-control"/>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Auteur</label>
-                    <h:text property="auteur" styleClass="form-control"/>
+                    <h:text name="livreForm" property="auteur" styleClass="form-control"/>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Catégorie</label>
-                    <h:text property="categorie" styleClass="form-control"/>
+                    <h:text name="livreForm" property="categorie" styleClass="form-control"/>
                 </div>
 
                 <div class="mb-4">
                     <label class="form-label">Nombre d'exemplaires</label>
-                    <h:text property="nbExemplaires" styleClass="form-control"/>
+                    <h:text name="livreForm" property="nbExemplaires" styleClass="form-control"/>
                 </div>
 
                 <div class="d-flex justify-content-between">
